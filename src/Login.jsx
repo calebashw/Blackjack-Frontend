@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./style/register_login_style.css";
 
 function Login({ setAuthenticated }) {
   const [username, setUsername] = useState('');
@@ -29,20 +30,31 @@ function Login({ setAuthenticated }) {
 
   return (
     <form onSubmit={handleLogin}>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
+      <div className="login-form">
+        <h2>Welcome Back</h2>
+        <div className="inputs">
+          <input
+            type="text"
+            placeholder="e.g. yourusername123"
+            className="login-input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password123"
+            className="login-input"
+            id="password-input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button className="register-login-button" type="submit">Login</button>
+
+        <p id="new-user">New User?</p>
+        <p id="sign-up-paragraph">Sign up <a href="/register">here</a> </p>
+        
+      </div>
     </form>
   );
 }

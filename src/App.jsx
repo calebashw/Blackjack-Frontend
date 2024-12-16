@@ -6,6 +6,7 @@ import Register from './Register';
 import Betting from './Betting';
 import GameBoard from './GameBoard';
 import axios from 'axios';
+import "./App.css";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,7 +22,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Blackjack Game</h1>
+        {/* <h1>Blackjack Game</h1> */}
         <Routes>
           {/* Default route to home page */}
           <Route path="/" element={<Home />} />
