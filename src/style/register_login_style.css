@@ -21,6 +21,7 @@ form {
     width: 600px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     display: flex;
     box-shadow: 0 6px 12px;
 }
@@ -28,11 +29,15 @@ form {
 .register-login-button {
     background: linear-gradient(to bottom left, rgb(51, 215, 40), rgb(31, 182, 61));
     color: white;
-    border-radius: 15px;
+    border-radius: 18px;
     height: 40px;
     width: 250px;
     padding: 5px;
     margin-top: 12px;
+    flex-direction: column;
+    border: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 18px;
 }
 
 .register-login-button:hover {
@@ -56,6 +61,7 @@ form {
     justify-content: center;
     display: flex;
     align-items: center;
+    border: none;
     margin-top: 10px;
 }
 
@@ -63,6 +69,8 @@ form {
     border-radius: 6px;
     padding: 5px;
     width: 450px;
+    /* border: rgb(60, 196, 196); */
+    border-width: 1px;
 }
 
 #password-input {
@@ -77,5 +85,13 @@ form {
 }
 #sign-up-paragraph {
     margin-top: 5px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Work Sans", sans-serif;
+    flex-direction: column;
+}
+
+.username-label {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 7px;
+    display: flex;
 }

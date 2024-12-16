@@ -33,8 +33,11 @@ function Login({ setAuthenticated }) {
       <div className="login-form">
         <h2>Welcome Back</h2>
         <div className="inputs">
+          <label className="username-label" htmlFor="username">Username</label>
           <input
             type="text"
+            id="username"
+            aria-label="username"
             placeholder="e.g. yourusername123"
             className="login-input"
             value={username}
@@ -42,6 +45,7 @@ function Login({ setAuthenticated }) {
           />
           <input
             type="password"
+            aria-label="password"
             placeholder="password123"
             className="login-input"
             id="password-input"
@@ -49,10 +53,11 @@ function Login({ setAuthenticated }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className="register-login-button" type="submit">Login</button>
+        <button className="register-login-button" type="submit">Sign in</button>
 
-        <p id="new-user">New User?</p>
-        <p id="sign-up-paragraph">Sign up <a href="/register">here</a> </p>
+        {/* <p id="new-user">New User?</p>
+        <p id="sign-up-paragraph">Sign up <a href="/register">here</a> </p> */}
+        <a id="sign-up-paragraph" href="/register">Don't have an account?</a>
         
       </div>
     </form>
