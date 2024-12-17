@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Betting({ bankroll, setBankroll, startGame, isAuthenticated }) {
+function Betting({ bankroll, setBankroll, isAuthenticated }) {
     const [bet, setBet] = useState(0);
   
     const placeBet = async () => {
@@ -11,9 +11,9 @@ function Betting({ bankroll, setBankroll, startGame, isAuthenticated }) {
         }
       
         try {
-          const response = await axios.post(`${process.env.REACT_APP_API_URL}/place-bet`, { bet }, { withCredentials: true });
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/main/place-bet`, { bet }, { withCredentials: true });
           setBankroll(response.data.remaining_bankroll);
-          startGame();
+          // startGame();
         } catch (error) {
           console.error("Betting error:", error);
         }

@@ -15,7 +15,7 @@ function App() {
 
   // Function to start a new game
   const startGame = async () => {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/start-game`, {}, { withCredentials: true });
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/main/start-game`, {}, { withCredentials: true });
     setGameData(response.data);
   };
 
@@ -30,7 +30,7 @@ function App() {
           {/* Login route */}
           <Route 
             path="/login" 
-            element={<Login setAuthenticated={setIsAuthenticated} />} 
+            element={<Login setAuthenticated={setIsAuthenticated} startGame={startGame} />} 
           />
           
           {/* Register route */}
@@ -48,7 +48,7 @@ function App() {
                   <Betting 
                     bankroll={bankroll} 
                     setBankroll={setBankroll} 
-                    startGame={startGame} 
+                    // startGame={startGame} 
                     isAuthenticated={isAuthenticated} 
                   />
                   {gameData && <GameBoard gameData={gameData} />}

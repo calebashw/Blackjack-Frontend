@@ -3,19 +3,19 @@ import axios from 'axios';
 
 function Controls() {
   const handleHit = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/hit`);
+    await axios.post(`${process.env.REACT_APP_API_URL}/main/hit`);
   };
 
   const handleStand = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/stand`);
+    await axios.post(`${process.env.REACT_APP_API_URL}/main/stand`);
   };
 
   const handleDoubleDown = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/double-down`);
+    await axios.post(`${process.env.REACT_APP_API_URL}/main/double-down`);
   };
 
   const handleSplit = async () => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/split`);
+    await axios.post(`${process.env.REACT_APP_API_URL}/main/split`);
   };
 
   return (

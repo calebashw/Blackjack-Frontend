@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./style/register_login_style.css";
 
-function Login({ setAuthenticated }) {
+function Login({ setAuthenticated, startGame }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -11,19 +11,26 @@ function Login({ setAuthenticated }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Send login request to Flask backend
-      await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-        username,
-        password,
-      }, { withCredentials: true });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        { username, password },
+        { withCredentials: true } // Include credentials like cookies
+      );
 
-      // If successful, setAuthenticated to true and redirect to game
+      console.log("Login response:", response.data);
+
+      // If successful, set authentication and navigate
       setAuthenticated(true);
+      await startGame();
       alert('Logged in successfully!');
       navigate('/game');
     } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message || 'Invalid credentials.');
+      } else {
+        alert('Network error. Please try again.');
+      }
       console.error('Login failed:', error);
-      alert('Login failed. Please check your credentials.');
     }
   };
 
@@ -33,7 +40,7 @@ function Login({ setAuthenticated }) {
         <h2>Welcome Back</h2>
         <div className="inputs">
           {/* Username Input */}
-          <label className="username-label" htmlFor="username">Username</label>
+          <label className="username-label" htmlFor="username" id="username-label">Username</label>
           <div className="input-container">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="icon-username" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -42,7 +49,7 @@ function Login({ setAuthenticated }) {
             <input
               type="text"
               id="username"
-              aria-label="username"
+              aria-labelledby="username-label"
               placeholder="e.g. yourusername123"
               className="login-input"
               required
@@ -52,7 +59,7 @@ function Login({ setAuthenticated }) {
           </div>
 
           {/* Password Input */}
-          <label className="password-label" htmlFor="password-input">Password</label>
+          <label className="password-label" htmlFor="password-input" id="password-label">Password</label>
           <div className="input-container">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="icon-password" viewBox="0 0 16 16">
               <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
@@ -60,7 +67,7 @@ function Login({ setAuthenticated }) {
             <input
               type="password"
               id="password-input"
-              aria-label="password"
+              aria-labelledby="password-label"
               placeholder="password123"
               className="login-input"
               required

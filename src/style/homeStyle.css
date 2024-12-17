@@ -1,0 +1,76 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    background: linear-gradient(to bottom left, rgb(160, 234, 48), rgb(31, 108, 47));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.directory-cover {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+    font-family: "Work Sans", sans-serif;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+
+.login-button {
+    background: linear-gradient(to bottom left, #33D728, #75d86e);
+    color: white;
+    border-radius: 18px;
+    height: 40px;
+    width: 125px;
+    padding: 5px;
+    margin-top: 12px;
+    border: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom left, #5ee055, #9deb97);
+}
+
+.register-button {
+    background: linear-gradient(to bottom left, #e04331, #f16050);
+    color: white;
+    border-radius: 18px;
+    height: 40px;
+    width: 125px;
+    padding: 5px;
+    margin-top: 12px;
+    border: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.register-button:hover {
+    cursor: pointer;
+    background: linear-gradient(to bottom left, #ed8074, #E74C3C);
+}
